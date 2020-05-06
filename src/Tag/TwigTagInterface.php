@@ -7,12 +7,12 @@ namespace Setono\TagBag\Tag;
 interface TwigTagInterface extends TagInterface
 {
     /**
-     * Returns the twig template.
+     * Returns the twig template
      */
     public function getTemplate(): string;
 
     /**
-     * Returns the parameters to inject into the twig template when rendered.
+     * Returns the context to inject into the twig template when rendered
      */
-    public function getParameters(): array;
+    public function getContext(): array;
 }

@@ -6,5 +6,5 @@ parameters:
 		- 'tests/**.php'
 
 	ignoreErrors:
-		- '/Call to an undefined method Setono\\TagBag\\Tag\\TagInterface::getParameters\(\)/'
+		- '/Call to an undefined method Setono\\TagBag\\Tag\\TagInterface::getContext\(\)/'
 		- '/Call to an undefined method Setono\\TagBag\\Tag\\TagInterface::getTemplate\(\)/'

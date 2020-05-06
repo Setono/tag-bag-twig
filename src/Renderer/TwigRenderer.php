@@ -25,6 +25,6 @@ final class TwigRenderer implements RendererInterface
 
     public function render(TagInterface $tag): string
     {
-        return $this->environment->render($tag->getTemplate(), $tag->getParameters());
+        return $this->environment->render($tag->getTemplate(), $tag->getContext());
     }
 }

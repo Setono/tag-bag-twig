@@ -10,7 +10,7 @@ final class TwigTag extends Tag implements TwigTagInterface
     private $template;
 
     /** @var array */
-    private $parameters = [];
+    private $context = [];
 
     public function __construct(string $key, string $template)
     {
@@ -24,14 +24,14 @@ final class TwigTag extends Tag implements TwigTagInterface
         return $this->template;
     }
 
-    public function getParameters(): array
+    public function getContext(): array
     {
-        return $this->parameters;
+        return $this->context;
     }
 
-    public function setParameters(array $parameters): self
+    public function setContext(array $context): self
     {
-        $this->parameters = $parameters;
+        $this->context = $context;
 
         return $this;
     }
@@ -39,9 +39,9 @@ final class TwigTag extends Tag implements TwigTagInterface
     /**
      * @param mixed $value
      */
-    public function addParameter(string $key, $value): self
+    public function addContext(string $key, $value): self
     {
-        $this->parameters[$key] = $value;
+        $this->context[$key] = $value;
 
         return $this;
     }
