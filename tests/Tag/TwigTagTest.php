@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Setono\TagBag\Tag;
@@ -34,8 +35,8 @@ final class TwigTagTest extends TestCase
         $this->assertIsArray($tag->getDependents());
         $this->assertCount(0, $tag->getDependents());
         $this->assertTrue($tag->willReplace());
-        $this->assertIsArray($tag->getParameters());
-        $this->assertCount(0, $tag->getParameters());
+        $this->assertIsArray($tag->getContext());
+        $this->assertCount(0, $tag->getContext());
     }
 
     /**
@@ -44,9 +45,9 @@ final class TwigTagTest extends TestCase
     public function it_is_mutable(): void
     {
         $tag = new TwigTag('key', 'template');
-        $tag->setParameters(['key' => 'value']);
+        $tag->setContext(['key' => 'value']);
 
-        $this->assertSame(['key' => 'value'], $tag->getParameters());
+        $this->assertSame(['key' => 'value'], $tag->getContext());
     }
 
     /**
@@ -55,9 +56,9 @@ final class TwigTagTest extends TestCase
     public function it_adds_parameters(): void
     {
         $tag = new TwigTag('key', 'template');
-        $tag->setParameters(['key1' => 'value1']);
-        $tag->addParameter('key2', 'value2');
+        $tag->setContext(['key1' => 'value1']);
+        $tag->addContext('key2', 'value2');
 
-        $this->assertSame(['key1' => 'value1', 'key2' => 'value2'], $tag->getParameters());
+        $this->assertSame(['key1' => 'value1', 'key2' => 'value2'], $tag->getContext());
     }
 }
