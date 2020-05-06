@@ -13,6 +13,7 @@ jobs:
             matrix:
                 operating-system: [ubuntu-latest]
                 php-versions: ['7.2', '7.3', '7.4']
+                composer-args: ['--prefer-lowest --prefer-stable', '']
         steps:
             -   name: Checkout
                 uses: actions/checkout@v1
@@ -22,7 +23,7 @@ jobs:
                     php-version: ${{ matrix.php-versions }}
                     extensions: mbstring
             -   name: Install Composer dependencies
-                run: composer update --no-progress --no-suggest --prefer-dist --no-interaction
+                run: composer update --no-progress --no-suggest --prefer-dist --no-interaction ${{ matrix.composer-args }}
             -   name: Validate composer
                 run: composer validate --strict
             -   name: Check composer normalized
