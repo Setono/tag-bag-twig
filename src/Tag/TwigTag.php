@@ -10,13 +10,13 @@ final class TwigTag extends Tag implements TwigTagInterface
     private $template;
 
     /** @var array */
-    private $context = [];
+    private $context;
 
-    public function __construct(string $key, string $template)
+    public function __construct(string $template, array $context = [])
     {
-        parent::__construct($key);
-
+        $this->setName('setono_tag_bag_twig_tag');
         $this->template = $template;
+        $this->context = $context;
     }
 
     public function getTemplate(): string

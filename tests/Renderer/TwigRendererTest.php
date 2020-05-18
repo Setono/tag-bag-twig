@@ -22,7 +22,7 @@ final class TwigRendererTest extends TestCase
     {
         $renderer = new TwigRenderer($this->getEnvironment());
 
-        $this->assertTrue($renderer->supports(new TwigTag('key', 'template')));
+        $this->assertTrue($renderer->supports(new TwigTag('template')));
     }
 
     /**
@@ -32,7 +32,8 @@ final class TwigRendererTest extends TestCase
     {
         $renderer = new TwigRenderer($this->getEnvironment());
 
-        $this->assertFalse($renderer->supports(new Tag('key')));
+        $this->assertFalse($renderer->supports(new class() extends Tag {
+        }));
     }
 
     /**
@@ -49,9 +50,9 @@ final class TwigRendererTest extends TestCase
 
         $renderer = new TwigRenderer($env);
 
-        $tag = (new TwigTag('key', 'template'))
-            ->addContext('context_key', 'context_value')
-        ;
+        $tag = new TwigTag('template', [
+            'context_key' => 'context_value',
+        ]);
 
         $this->assertSame('content', $renderer->render($tag));
     }

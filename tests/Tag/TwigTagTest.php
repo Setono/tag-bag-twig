@@ -16,7 +16,7 @@ final class TwigTagTest extends TestCase
      */
     public function it_creates(): void
     {
-        $tag = new TwigTag('key', 'template');
+        $tag = new TwigTag('template');
         $this->assertInstanceOf(TagInterface::class, $tag);
         $this->assertInstanceOf(TwigTagInterface::class, $tag);
     }
@@ -26,15 +26,10 @@ final class TwigTagTest extends TestCase
      */
     public function it_has_default_values(): void
     {
-        $tag = new TwigTag('key', 'template');
+        $tag = new TwigTag('template');
 
-        $this->assertSame('key', $tag->getKey());
+        $this->assertSame('setono_tag_bag_twig_tag', $tag->getName());
         $this->assertSame('template', $tag->getTemplate());
-        $this->assertNull($tag->getSection());
-        $this->assertSame(0, $tag->getPriority());
-        $this->assertIsArray($tag->getDependents());
-        $this->assertCount(0, $tag->getDependents());
-        $this->assertTrue($tag->willReplace());
         $this->assertIsArray($tag->getContext());
         $this->assertCount(0, $tag->getContext());
     }
@@ -44,7 +39,7 @@ final class TwigTagTest extends TestCase
      */
     public function it_is_mutable(): void
     {
-        $tag = new TwigTag('key', 'template');
+        $tag = new TwigTag('template');
         $tag->setContext(['key' => 'value']);
 
         $this->assertSame(['key' => 'value'], $tag->getContext());
@@ -53,9 +48,9 @@ final class TwigTagTest extends TestCase
     /**
      * @test
      */
-    public function it_adds_parameters(): void
+    public function it_adds_context(): void
     {
-        $tag = new TwigTag('key', 'template');
+        $tag = new TwigTag('template');
         $tag->setContext(['key1' => 'value1']);
         $tag->addContext('key2', 'value2');
 
