@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Setono\TagBag\Tag;
 
-final class TwigTag extends Tag implements TwigTagInterface
+class TwigTag extends Tag implements TwigTagInterface
 {
     /** @var string */
     private $template;
