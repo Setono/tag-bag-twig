@@ -1,7 +1,7 @@
 {
     "name": "setono/tag-bag-twig",
     "type": "library",
-    "description": "Twig renderer for the tag bag library",
+    "description": "Twig extension for the tag bag library including a tag and a renderer",
     "license": "MIT",
     "authors": [
         {
