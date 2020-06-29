@@ -1,4 +1,4 @@
-# Twig renderer for the tag bag
+# Twig extension for the tag bag
 
 [![Latest Version][ico-version]][link-packagist]
 [![Latest Unstable Version][ico-unstable-version]][link-packagist]
@@ -6,6 +6,8 @@
 [![Build Status][ico-github-actions]][link-github-actions]
 [![Coverage Status][ico-code-coverage]][link-code-coverage]
 [![Quality Score][ico-code-quality]][link-code-quality]
+
+Includes a renderer and a `TwigTag` that will make it easy to use twig templates with the tag bag.
 
 ## Installation
 ```bash
