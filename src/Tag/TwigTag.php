@@ -6,7 +6,7 @@ namespace Setono\TagBag\Tag;
 
 class TwigTag extends TemplateTag implements TwigTagInterface
 {
-    protected $name = 'setono_tag_bag_twig_tag';
+    protected string $name = 'setono_tag_bag_twig_tag';
 
     /**
      * @param mixed $value
